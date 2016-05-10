@@ -11,6 +11,9 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import grinnell.appdev.edu.lyles.fragments.BeerFragment;
+import grinnell.appdev.edu.lyles.fragments.FavoritesFragment;
+import grinnell.appdev.edu.lyles.fragments.MenuFragment;
 import grinnell.appdev.edu.lyles.fragments.ScheduleFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,6 +43,18 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.schedule:
                         Log.d("nav", "Schedule selected from nav");
                         newFrag = new ScheduleFragment();
+                        break;
+                    case R.id.menu:
+                        Log.d("nav", "Menu selected from nav");
+                        newFrag = new MenuFragment();
+                        break;
+                    case R.id.beer:
+                        Log.d("nav", "Beer selected from nav");
+                        newFrag = new BeerFragment();
+                        break;
+                    case R.id.favorites:
+                        Log.d("nav", "Favorites selected from nav");
+                        newFrag = new FavoritesFragment();
                         break;
                     default:
                         Log.d("nav", "Invalid nav option selected (" + item.getItemId() + ")");
