@@ -23,22 +23,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Set toolbar as the action bar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer);
 
+        //Enable navigation drawer buttons
         NavigationView nav = (NavigationView) findViewById(R.id.nav_view);
         nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
+                //Set "checked" highlight
                 if(item.isChecked()) item.setChecked(false);
                 else item.setChecked(true);
 
+                //Close the drawer when an item is selected
                 drawer.closeDrawers();
 
                 Fragment newFrag;
 
+                //Choose the new fragment based on which item is chosen
                 switch(item.getItemId()) {
                     case R.id.schedule:
                         Log.d("nav", "Schedule selected from nav");
@@ -62,11 +67,13 @@ public class MainActivity extends AppCompatActivity {
                         return false;
                 }
 
+                //Replace the content fragment
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame, newFrag).commit();
                 return true;
             }
         });
 
+        //Create the drawer toggle button
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.open_drawer, R.string.close_drawer);
         drawer.addDrawerListener(toggle);
         toggle.syncState();

@@ -8,6 +8,8 @@
     android:fitsSystemWindows="true"
     tools:context="grinnell.appdev.edu.lyles.MainActivity">
 
+
+    <!--Content frame holder-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,6 +25,7 @@
             android:id="@+id/frame"/>
     </LinearLayout>
 
+    <!--Navigation drawer-->
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_height="match_parent"
