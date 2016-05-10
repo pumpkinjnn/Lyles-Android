@@ -3,29 +3,22 @@ package grinnell.appdev.edu.lyles.Model;
 import java.util.Date;
 
 public class Event {
-        private String id;
         private String title;
         private Date startTime;
         private Date endTime;
-        private String[] hosts;
         private String description;
+        private int tab;
 
-    public Event(String id, String title, Date startTime, Date endTime, String description, String[] hosts) {
-        this.id = id;
+    public Event(String title, Date startTime, Date endTime, String description, int tab) {
         this.title = title;
         this.startTime = startTime;
         this.endTime = endTime;
         this.description = description;
-        this.hosts = hosts;
-
+        this.tab = tab;
     }
 
     public String getTitle() {
         return title;
-    }
-
-    public String getId() {
-        return id;
     }
 
     public Date getStartTime() {
@@ -36,12 +29,11 @@ public class Event {
         return endTime;
     }
 
-    public String[] getHosts() {
-        return hosts;
-    }
-
     public String getDescription() {
         return description;
     }
 
+    public int getTab() {
+        return tab;
+    }
 }
