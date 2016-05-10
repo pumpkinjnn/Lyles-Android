@@ -24,16 +24,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Setup colors and title
-
+        setTitle(R.string.schedule_title);
 
         // Initialize events and pass them to adapter
-        events.add(new Event("Pub Talk", new Date(), new Date(), "", 0));
+        events.add(new Event("Political Science SEPC Pub Night", new Date(), new Date(), "", 100));
+        events.add(new Event("Computer Science SEPC Pub Talk", new Date(), new Date(), "", 90));
+        events.add(new Event("Marcel Champagne Pub Speech", new Date(), new Date(), "", 15));
         recyclerView = (RecyclerView) findViewById(R.id.schedule_view);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
+        // Set up adapter
         adapter = new EventsAdapter(events, getApplicationContext());
-        System.out.println(adapter.getItemCount());
         recyclerView.setAdapter(adapter);
 
     }
