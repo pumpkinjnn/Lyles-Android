@@ -41,25 +41,23 @@ public class MainActivity extends AppCompatActivity {
                 //Close the drawer when an item is selected
                 drawer.closeDrawers();
 
-                Fragment newFrag;
-
                 //Choose the new fragment based on which item is chosen
                 switch(item.getItemId()) {
                     case R.id.schedule:
                         Log.d("nav", "Schedule selected from nav");
-                        newFrag = new ScheduleFragment();
+                        changeContentFragment(new ScheduleFragment());
                         break;
                     case R.id.menu:
                         Log.d("nav", "Menu selected from nav");
-                        newFrag = new MenuFragment();
+                        changeContentFragment(new MenuFragment());
                         break;
                     case R.id.beer:
                         Log.d("nav", "Beer selected from nav");
-                        newFrag = new BeerFragment();
+                        changeContentFragment(new BeerFragment());
                         break;
                     case R.id.favorites:
                         Log.d("nav", "Favorites selected from nav");
-                        newFrag = new FavoritesFragment();
+                        changeContentFragment(new FavoritesFragment());
                         break;
                     default:
                         Log.d("nav", "Invalid nav option selected (" + item.getItemId() + ")");
@@ -67,8 +65,6 @@ public class MainActivity extends AppCompatActivity {
                         return false;
                 }
 
-                //Replace the content fragment
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame, newFrag).commit();
                 return true;
             }
         });
@@ -77,5 +73,9 @@ public class MainActivity extends AppCompatActivity {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.open_drawer, R.string.close_drawer);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+    }
+
+    private void changeContentFragment(Fragment newFragment) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame, newFragment).commit();
     }
 }
