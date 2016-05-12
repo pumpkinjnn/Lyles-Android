@@ -27,8 +27,16 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer);
+        initNavDrawer(drawer);
 
+        //Create the drawer toggle button
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.open_drawer, R.string.close_drawer);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+    }
+
+    private void initNavDrawer(final DrawerLayout drawer) {
         //Enable navigation drawer buttons
         NavigationView nav = (NavigationView) findViewById(R.id.nav_view);
         nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -68,11 +76,6 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-
-        //Create the drawer toggle button
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.open_drawer, R.string.close_drawer);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
     }
 
     private void changeContentFragment(Fragment newFragment) {
