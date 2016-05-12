@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/schedule"
+            android:checked="false"
+            android:icon="@drawable/ic_schedule_black_24dp"
+            android:title="@string/drawer_schedule"/>
+        <item
+            android:id="@+id/menu"
+            android:checked="false"
+            android:icon="@drawable/ic_restaurant_menu_black_24dp"
+            android:title="@string/drawer_menu"/>
+        <item
+            android:id="@+id/beer"
+            android:checked="false"
+            android:icon="@drawable/ic_local_drink_black_24dp"
+            android:title="@string/drawer_beer"/>
+        <item
+            android:id="@+id/favorites"
+            android:checked="false"
+            android:icon="@drawable/ic_stars_black_24dp"
+            android:title="@string/drawer_favorites"/>
+    </group>
+</menu>
