@@ -29,29 +29,11 @@ public class MenuFragment extends Fragment {
         menuHost = (FragmentTabHost) view.findViewById(android.R.id.tabhost);
         menuHost.setup(getActivity(), getChildFragmentManager(), android.R.id.tabcontent);
 
-        // hot food
-        Bundle hotFoodBundle = new Bundle();
-        hotFoodBundle.putInt("Hot Food Tab", 1);
-        menuHost.addTab(menuHost.newTabSpec("Hot Food").setIndicator("Hot Food"),
-                HotFoodFragment.class, hotFoodBundle);
-
-        // snacks
-        Bundle snackBundle = new Bundle();
-        snackBundle.putInt("Snack Tab", 2);
-        menuHost.addTab(menuHost.newTabSpec("Snacks").setIndicator("Snacks"),
-                SnacksFragment.class, snackBundle);
-
-        // drinks
-        Bundle drinkBundle = new Bundle();
-        snackBundle.putInt("Drink Tab", 2);
-        menuHost.addTab(menuHost.newTabSpec("Drinks").setIndicator("Drinks"),
-                DrinksFragment.class, drinkBundle);
-
-        // Favorites
-        Bundle favoriteBundle = new Bundle();
-        snackBundle.putInt("Favorite Tab", 2);
-        menuHost.addTab(menuHost.newTabSpec("Favorite").setIndicator("Favorite"),
-                FavoriteFoodFragment.class, favoriteBundle);
+        // create tabs
+        addToTabHost("Hot Food",  1, HotFoodFragment.class);
+        addToTabHost("Snacks",    2, SnacksFragment.class);
+        addToTabHost("Drinks",    3, SnacksFragment.class);
+        addToTabHost("Favorites", 4, FavoriteFoodFragment.class);
 
         return menuHost;
     }
@@ -59,5 +41,12 @@ public class MenuFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    private void addToTabHost(String tabName, int num, Class fragmentClass) {
+        Bundle bundle = new Bundle();
+        bundle.putInt(tabName + " Tab", num);
+        menuHost.addTab(menuHost.newTabSpec(tabName).setIndicator(tabName),
+                fragmentClass, bundle);
     }
 }
