@@ -29,7 +29,7 @@ public class MenuFragment extends Fragment {
         menuHost = (FragmentTabHost) view.findViewById(android.R.id.tabhost);
         menuHost.setup(getActivity(), getChildFragmentManager(), android.R.id.tabcontent);
 
-        // create tabs
+        // create tabs and add to menuHost
         addToTabHost("Hot Food",  1, HotFoodFragment.class);
         addToTabHost("Snacks",    2, SnacksFragment.class);
         addToTabHost("Drinks",    3, SnacksFragment.class);

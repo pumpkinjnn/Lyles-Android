@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import grinnell.appdev.edu.lyles.R;
 
 /**
- * A simple {@link Fragment} subclass.
+ * A fragment to display available drinks to users
  */
 public class DrinksFragment extends Fragment {
 
