@@ -2,6 +2,10 @@ package grinnell.appdev.edu.lyles.Model;
 
 import java.util.Date;
 
+/**
+ * Main Event model
+ * Used to store information related to a single Lyle's Pub event
+ */
 public class Event {
         private String title;
         private Date startTime;
