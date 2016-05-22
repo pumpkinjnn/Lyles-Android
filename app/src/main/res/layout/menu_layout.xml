@@ -26,14 +26,3 @@
     </LinearLayout>
 
 </android.support.v4.app.FragmentTabHost>
-
-    <!--
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Menu"
-            android:padding="8dp"
-            android:textSize="28sp"
-            android:id="@+id/textView"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />  -->
