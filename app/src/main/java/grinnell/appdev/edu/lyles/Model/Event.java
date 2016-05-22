@@ -21,6 +21,26 @@ public class Event {
         this.tab = tab;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setTab(int tab) {
+        this.tab = tab;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -40,4 +60,5 @@ public class Event {
     public int getTab() {
         return tab;
     }
+
 }
