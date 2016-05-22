@@ -16,7 +16,9 @@ import android.widget.TextView;
 import grinnell.appdev.edu.lyles.R;
 
 /**
- * Created by Mattori on 5/9/16.
+ * Contributors:
+ *  Mattori Birnbaum
+ *  Matt Murphy
  */
 public class MenuFragment extends Fragment {
 
@@ -37,7 +39,7 @@ public class MenuFragment extends Fragment {
         addToTabHost("Drinks",    3, DrinksFragment.class);
         addToTabHost("Favorites", 4, FavoriteFoodFragment.class);
 
-        // change text size in tab views
+        //TODO: change text size in tab views
 
         return menuHost;
     }
