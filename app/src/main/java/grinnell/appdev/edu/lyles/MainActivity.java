@@ -5,7 +5,6 @@ import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
@@ -21,21 +20,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setupFragmentContainer((BottomBar) findViewById(R.id.bottombar));
+        setupFragmentContainer((BottomBar) findViewById(R.id.bottom_bar));
     }
 
     private void setupFragmentContainer(BottomBar bar) {
         bar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelected(@IdRes int tabId) {
-                Fragment newFrag;
+                Fragment fragment;
                 switch(tabId) {
-                    case R.id.tab_schedule: newFrag = new ScheduleFragment(); break;
-                    case R.id.tab_menu: newFrag = new MenuFragment(); break;
-                    case R.id.tab_beer: newFrag = new BeerFragment(); break;
-                    default: newFrag = new ScheduleFragment(); // something went wrong
+                    case R.id.tab_schedule: fragment = new ScheduleFragment(); break;
+                    case R.id.tab_menu: fragment = new MenuFragment(); break;
+                    case R.id.tab_beer: fragment = new BeerFragment(); break;
+                    default: fragment = new ScheduleFragment(); // something went wrong
                 }
-                changeFragment(newFrag);
+                changeFragment(fragment);
             }
         });
     }
