@@ -2,6 +2,8 @@ package grinnell.appdev.edu.lyles;
 
 import android.content.Context;
 import android.graphics.Picture;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 /**
