@@ -13,8 +13,8 @@ import android.widget.ArrayAdapter;
  * General adapter to be used by beer, drinks, favoritefood, hotfood, menu and snacks fragments
  * adapter contains image, and description of catelog item
  */
-public class ItemAdapter extends ArrayAdapter<Picture> {
-    public ItemAdapter (Context context, int resource) {
+public class BeerAdapter extends ArrayAdapter<Picture> {
+    public BeerAdapter(Context context, int resource) {
         super(context, resource);
     }
 
@@ -30,6 +30,8 @@ public class ItemAdapter extends ArrayAdapter<Picture> {
         if (convertView == null) {
             convertView = LayoutInflater.from(this.getContext()).inflate(R.layout.menu_list_item, parent, false);
         }
+
+
 
         return convertView;
     }
