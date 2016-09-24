@@ -28,7 +28,7 @@ public class BeerAdapter extends ArrayAdapter<Picture> {
 
     public View getView(int pos, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = LayoutInflater.from(this.getContext()).inflate(R.layout.menu_list_item, parent, false);
+            convertView = LayoutInflater.from(this.getContext()).inflate(R.layout.beer_list_item, parent, false);
         }
 
 
