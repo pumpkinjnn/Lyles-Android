@@ -2,6 +2,7 @@ package grinnell.appdev.edu.lyles;
 
 import android.content.Context;
 import android.graphics.Picture;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -24,4 +25,12 @@ public class ItemAdapter extends ArrayAdapter<Picture> {
      * item picture
      * item description
      */
+
+    public View getView(int pos, View convertView, ViewGroup parent) {
+        if (convertView == null) {
+            convertView = LayoutInflater.from(this.getContext()).inflate(R.layout.menu_list_item, parent, false);
+        }
+
+        return convertView;
+    }
 }
