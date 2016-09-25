@@ -31,7 +31,7 @@ public class BeerItem {
         mDescription = description;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return mPrice;
     }
 
