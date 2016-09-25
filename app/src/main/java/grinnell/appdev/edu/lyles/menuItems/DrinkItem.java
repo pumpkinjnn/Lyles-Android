@@ -8,10 +8,12 @@ public class DrinkItem {
 
     private String mName;
     private String mDescription;
+    private double mPrice;
 
     public DrinkItem() {
         mName = null;
         mDescription = null;
+        mPrice = 0.00;
     }
 
     public String getName() {
@@ -28,5 +30,20 @@ public class DrinkItem {
 
     public void setDescription(String description) {
         mDescription = description;
+    }
+
+    public double getPrice() {
+        return mPrice;
+    }
+
+    public void setPrice(double price) {
+        mPrice = price;
+    }
+
+
+    public String getImageResource() {
+        String resName = null;
+
+        return resName;
     }
 }

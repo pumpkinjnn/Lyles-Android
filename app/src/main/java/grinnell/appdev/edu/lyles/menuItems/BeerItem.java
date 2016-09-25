@@ -35,14 +35,16 @@ public class BeerItem {
         return mPrice;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         mPrice = price;
     }
 
     // TODO: gather image resources from beer name
     // completed from switch statement on possible names
     public String getImageResource() {
+        String resName = null;
 
+        return resName;
     }
 
 }
