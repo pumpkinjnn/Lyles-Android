@@ -6,18 +6,18 @@ package grinnell.appdev.edu.lyles.menuItems;
 
 public interface MenuItem {
 
-    public String getName();
+    String getName();
 
-    public String getDescription();
+    String getDescription();
 
-    public void setName(String name);
+    void setName(String name);
 
-    public void setDescription(String description);
+    void setDescription(String description);
 
-    public double getPrice();
+    double getPrice();
 
-    public void setPrice(double price);
+    void setPrice(double price);
 
-    public String getImageResource();
+    String getImageResource();
 
 }
