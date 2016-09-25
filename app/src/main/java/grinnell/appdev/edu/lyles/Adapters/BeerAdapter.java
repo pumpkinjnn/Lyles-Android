@@ -1,4 +1,4 @@
-package grinnell.appdev.edu.lyles;
+package grinnell.appdev.edu.lyles.adapters;
 
 import android.content.Context;
 import android.graphics.Picture;
@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+
+import grinnell.appdev.edu.lyles.R;
 
 /**
  * Created by mattmurphy on 9/11/16.
