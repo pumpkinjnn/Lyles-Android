@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
 import grinnell.appdev.edu.lyles.R;
+import grinnell.appdev.edu.lyles.menuItems.BeerItem;
 
 /**
  * Created by mattmurphy on 9/11/16.
@@ -16,7 +17,7 @@ import grinnell.appdev.edu.lyles.R;
  * General adapter to be used by beer, drinks, favoritefood, hotfood, menu and snacks fragments
  * adapter contains image, and description of catelog item
  */
-public class BeerAdapter extends ArrayAdapter<Picture> {
+public class BeerAdapter extends ArrayAdapter<BeerItem> {
     public BeerAdapter(Context context, int resource) {
         super(context, resource);
     }
@@ -34,15 +35,15 @@ public class BeerAdapter extends ArrayAdapter<Picture> {
             convertView = LayoutInflater.from(this.getContext()).inflate(R.layout.beer_list_item, parent, false);
         }
 
-        //final BeerItem beer = BeerAdapter.super.getItem(pos);
+        final BeerItem beer = BeerAdapter.super.getItem(pos);
 
-        //if (beer != null) {
+        if (beer != null) {
 
             // create references to view items
-//            final ImageView beerImage = convertView.findViewById(R.id.beerImage);
+            // final ImageView beerImage = convertView.findViewById(R.id.beerImage);
 
 
-  //      }
+        }
 
         return convertView;
     }
