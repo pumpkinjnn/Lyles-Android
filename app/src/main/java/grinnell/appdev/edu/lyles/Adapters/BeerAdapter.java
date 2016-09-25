@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 
 import grinnell.appdev.edu.lyles.R;
 
@@ -33,7 +34,15 @@ public class BeerAdapter extends ArrayAdapter<Picture> {
             convertView = LayoutInflater.from(this.getContext()).inflate(R.layout.beer_list_item, parent, false);
         }
 
+        //final BeerItem beer = BeerAdapter.super.getItem(pos);
 
+        //if (beer != null) {
+
+            // create references to view items
+//            final ImageView beerImage = convertView.findViewById(R.id.beerImage);
+
+
+  //      }
 
         return convertView;
     }
