@@ -1,16 +1,18 @@
 package grinnell.appdev.edu.lyles.menuItems;
 
 /**
- * Model beer item. Contains
+ * Model beer item. Contains information on beer name and beer description
  */
 public class BeerItem {
 
     private String mName;
     private String mDescription;
+    private double mPrice;
 
     public BeerItem() {
         mName = null;
         mDescription = null;
+        mPrice = 0.00;
     }
 
     public String getName() {
@@ -28,4 +30,15 @@ public class BeerItem {
     public void setDescription(String description) {
         mDescription = description;
     }
+
+    public float getPrice() {
+        return mPrice;
+    }
+
+    public void setPrice(float price) {
+        mPrice = price;
+    }
+
+
+
 }
