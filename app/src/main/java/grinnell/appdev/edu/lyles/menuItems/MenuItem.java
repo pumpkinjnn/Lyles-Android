@@ -18,4 +18,6 @@ public interface MenuItem {
 
     public void setPrice(double price);
 
+    public String getImageResource();
+
 }
