@@ -39,6 +39,10 @@ public class BeerItem {
         mPrice = price;
     }
 
+    // TODO: gather image resources from beer name
+    // completed from switch statement on possible names
+    public String getImageResource() {
 
+    }
 
 }
