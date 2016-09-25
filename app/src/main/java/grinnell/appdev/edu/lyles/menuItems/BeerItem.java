@@ -5,34 +5,33 @@ package grinnell.appdev.edu.lyles.menuItems;
  */
 public class BeerItem implements MenuItem {
 
-    @Override
+    String mName;
+    String mDescription;
+    double mPrice;
+
     public String getName() {
-        return null;
+        return mName;
     }
 
-    @Override
-    public String getDescription() {
-        return null;
-    }
-
-    @Override
     public void setName(String name) {
-
+        mName = name;
     }
 
-    @Override
+    public String getDescription() {
+        return mDescription;
+    }
+
     public void setDescription(String description) {
-
+        mDescription = description;
     }
 
-    @Override
     public double getPrice() {
-        return 0;
+        return mPrice;
     }
 
     @Override
     public void setPrice(double price) {
-
+        mPrice = price;
     }
 
     // TODO: gather image resources from beer name
