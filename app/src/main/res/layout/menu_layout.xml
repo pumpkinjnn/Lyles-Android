@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         />
 
-    <com.android4devs.slidingtab.SlidingTabLayout
+    <grinnell.appdev.edu.lyles.slidingtab.SlidingTabLayout
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
