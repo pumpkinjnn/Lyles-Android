@@ -28,14 +28,11 @@ public class BeerItem implements OrderItem {
         mDescription = description;
     }
 
-    public double getPrice() {
-        return mPrice;
-    }
+    public double getPrice() { return mPrice; }
 
     public void setPrice(double price) {
         mPrice = price;
     }
-
 
     public String getImageResource() {
         // TODO: gather image resources from beer name
