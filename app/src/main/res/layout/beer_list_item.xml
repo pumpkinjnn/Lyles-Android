@@ -10,6 +10,11 @@
         android:paddingLeft="8dp"
         android:paddingRight="8dp">
 
+        <ImageView
+            android:layout_width="@dimen/menu_image_len"
+            android:layout_height="@dimen/menu_image_len"
+            android:id="@+id/beer_image"
+            android:layout_alignParentLeft="true"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -22,19 +27,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/drink_type"/>
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/categories"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            app:civ_border_width="2dp"
-            app:civ_border_color="#FF000000"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:paddingLeft="42dp"
-            android:paddingRight="42dp"/>
 
     </RelativeLayout>
 

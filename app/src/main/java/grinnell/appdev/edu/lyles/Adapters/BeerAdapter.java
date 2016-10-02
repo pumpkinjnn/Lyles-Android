@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import grinnell.appdev.edu.lyles.R;
@@ -38,12 +39,11 @@ public class BeerAdapter extends ArrayAdapter<BeerItem> {
         final BeerItem beer = BeerAdapter.super.getItem(pos);
 
         if (beer != null) {
-
             // create references to view items
             // final ImageView beerImage = convertView.findViewById(R.id.beerImage);
-
-
         }
+
+        
 
         return convertView;
     }
