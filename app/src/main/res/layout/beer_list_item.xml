@@ -7,8 +7,7 @@
 
     <RelativeLayout android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_margin="48dp"
-        android:elevation="7dp">
+        android:layout_margin="48dp">
 
         <ImageView
             android:layout_width="@dimen/menu_image_len"
