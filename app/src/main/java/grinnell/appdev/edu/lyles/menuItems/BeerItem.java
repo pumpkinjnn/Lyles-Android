@@ -3,7 +3,7 @@ package grinnell.appdev.edu.lyles.menuItems;
 /**
  * Model beer item. Contains information on beer name and beer description
  */
-public class BeerItem implements MenuItem {
+public class BeerItem implements OrderItem {
 
     String mName;
     String mDescription;
