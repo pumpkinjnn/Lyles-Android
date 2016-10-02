@@ -1,13 +1,16 @@
 package grinnell.appdev.edu.lyles.menuItems;
 
 /**
- * Model beer item. Contains information on beer name and beer description
+ * Model beer item. Contains information on beer name and beer description.
+ * Used to fill beer adapter
  */
 public class BeerItem implements OrderItem {
 
-    String mName;
-    String mDescription;
-    double mPrice;
+    private String mName;
+    private String mDescription;
+    private double mPrice;
+
+    public BeerItem() {}
 
     public String getName() {
         return mName;
@@ -29,17 +32,14 @@ public class BeerItem implements OrderItem {
         return mPrice;
     }
 
-    @Override
     public void setPrice(double price) {
         mPrice = price;
     }
 
-    // TODO: gather image resources from beer name
-    // completed from switch statement on possible names
+
     public String getImageResource() {
-        String resName = null;
-
-        return resName;
+        // TODO: gather image resources from beer name
+        // completed from switch statement on possible names
+        return null;
     }
-
 }
