@@ -1,7 +1,7 @@
 package grinnell.appdev.edu.lyles.slidingtab;
 
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
+import static android.support.v4.content.ContextCompat.getColor;
 
 import grinnell.appdev.edu.lyles.R;
 
@@ -21,6 +21,6 @@ public class MenuTabColorizer implements SlidingTabLayout.TabColorizer {
 
     @Override
     public int getIndicatorColor(int pos) {
-        return ContextCompat.getColor(mContext, R.color.tabsScrollColor);
+        return getColor(mContext, R.color.tabsScrollColor);
     }
 }
