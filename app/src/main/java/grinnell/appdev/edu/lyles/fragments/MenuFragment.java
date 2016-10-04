@@ -48,11 +48,11 @@ public class MenuFragment extends Fragment {
     }
 
     private void setupViewPager(View view) {
-        MenuViewPagerAdapter adapter = new MenuViewPagerAdapter(getFragmentManager(), getContext());
-        ViewPager pager = (ViewPager) view.findViewById(R.id.pager);
+        final MenuViewPagerAdapter adapter = new MenuViewPagerAdapter(getFragmentManager(), getContext());
+        final ViewPager pager = (ViewPager) view.findViewById(R.id.pager);
         pager.setAdapter(adapter);
 
-        SlidingTabLayout tabs = (SlidingTabLayout) view.findViewById(R.id.tabs);
+        final SlidingTabLayout tabs = (SlidingTabLayout) view.findViewById(R.id.tabs);
         tabs.setDistributeEvenly(true);
         tabs.setCustomTabColorizer(new MenuTabColorizer(getContext()));
 
