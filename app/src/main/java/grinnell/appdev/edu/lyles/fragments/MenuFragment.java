@@ -29,7 +29,7 @@ public class MenuFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.menu_layout, container, false);
+        final View view = inflater.inflate(R.layout.menu_layout, container, false);
 
         setupViewPager(view);
         
