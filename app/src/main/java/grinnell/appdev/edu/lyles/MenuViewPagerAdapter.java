@@ -1,6 +1,7 @@
 package grinnell.appdev.edu.lyles;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -20,11 +21,11 @@ public class MenuViewPagerAdapter extends FragmentStatePagerAdapter {
     private static final int FAVORITES_INDEX = 3;
     private static final int NUM_TABS = 4;
 
-    private Context mContext;
+    private final Resources mResources;
 
     public MenuViewPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
-        mContext = context;
+        mResources = context.getResources();
     }
 
     @Override
@@ -41,11 +42,10 @@ public class MenuViewPagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         switch(position) {
-            case HOT_FOOD_INDEX:
-                return mContext.getResources().getString(R.string.hot_food_tab_title);
-            case SNACKS_INDEX: return mContext.getResources().getString(R.string.snacks_tab_title);
-            case DRINKS_INDEX: mContext.getResources().getString(R.string.drinks_tab_title);
-            case FAVORITES_INDEX: mContext.getResources().getString(R.string.favorites_tab_title);
+            case HOT_FOOD_INDEX: return mResources.getString(R.string.hot_food_tab_title);
+            case SNACKS_INDEX: return mResources.getString(R.string.snacks_tab_title);
+            case DRINKS_INDEX: return mResources.getString(R.string.drinks_tab_title);
+            case FAVORITES_INDEX: return mResources.getString(R.string.favorites_tab_title);
             default: return new String();
         }
     }
