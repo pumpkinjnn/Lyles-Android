@@ -6,6 +6,8 @@ import android.support.v4.content.ContextCompat;
 import grinnell.appdev.edu.lyles.R;
 
 /**
+ * A {@code SlidingTabLayout.TabColorizer} to display the correct color for {@code SlidingTabLayout}
+ *
  * Created by Mattori on 9/29/16.
  */
 

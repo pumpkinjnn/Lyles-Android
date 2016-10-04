@@ -12,6 +12,9 @@ import grinnell.appdev.edu.lyles.fragments.HotFoodFragment;
 import grinnell.appdev.edu.lyles.fragments.SnacksFragment;
 
 /**
+ * A {@code FragmentStatePagerAdapter} to handle the display of the various {@code Fragment}s,
+ * dispatching the correct {@code Fragment} and title name.
+ *
  * Created by Mattori on 9/25/16.
  */
 public class MenuViewPagerAdapter extends FragmentStatePagerAdapter {
