@@ -1,5 +1,6 @@
 package grinnell.appdev.edu.lyles;
 
+import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -13,34 +14,44 @@ import grinnell.appdev.edu.lyles.fragments.SnacksFragment;
  * Created by Mattori on 9/25/16.
  */
 public class MenuViewPagerAdapter extends FragmentStatePagerAdapter {
-
-    public MenuViewPagerAdapter(FragmentManager fm) {
-        super(fm);
-    }
-
-    /**
-     * The number of tabs in the menu
-     */
+    private static final int HOT_FOOD_INDEX = 0;
+    private static final int SNACKS_INDEX = 1;
+    private static final int DRINKS_INDEX = 2;
+    private static final int FAVORITES_INDEX = 3;
     private static final int NUM_TABS = 4;
 
-    /**
-     * Determines which tab to show
-     * @param position
-     * @return
-     */
+    private Context mContext;
+
+    public MenuViewPagerAdapter(FragmentManager fm, Context context) {
+        super(fm);
+        mContext = context;
+    }
+
     @Override
     public Fragment getItem(int position) {
         switch(position) {
-            case 0: return new HotFoodFragment();
-            case 1: return new SnacksFragment();
-            case 2: return new DrinksFragment();
-            case 3: return new FavoritesFragment();
-            default: return null;
+            case HOT_FOOD_INDEX: return new HotFoodFragment();
+            case SNACKS_INDEX: return new SnacksFragment();
+            case DRINKS_INDEX: return new DrinksFragment();
+            case FAVORITES_INDEX: return new FavoritesFragment();
+            default: return new Fragment();
+        }
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        switch(position) {
+            case HOT_FOOD_INDEX:
+                return mContext.getResources().getString(R.string.hot_food_tab_title);
+            case SNACKS_INDEX: return mContext.getResources().getString(R.string.snacks_tab_title);
+            case DRINKS_INDEX: mContext.getResources().getString(R.string.drinks_tab_title);
+            case FAVORITES_INDEX: mContext.getResources().getString(R.string.favorites_tab_title);
+            default: return new String();
         }
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return NUM_TABS;
     }
 }
