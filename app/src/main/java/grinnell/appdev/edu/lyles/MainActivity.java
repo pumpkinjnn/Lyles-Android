@@ -5,6 +5,7 @@ import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
@@ -21,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setupFragmentContainer((BottomBar) findViewById(R.id.bottom_bar));
+        changeFragment(new ScheduleFragment());
+
+        setupToolbar();
     }
 
     private void setupFragmentContainer(BottomBar bar) {
@@ -40,8 +44,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void changeFragment(Fragment target) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        final FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, target);
         transaction.commit();
+    }
+
+    private void setupToolbar() {
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        setSupportActionBar(toolbar);
     }
 }
