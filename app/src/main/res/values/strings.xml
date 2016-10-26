@@ -6,6 +6,11 @@
     <string name="drawer_favorites">Favorites</string>
     <string name="open_drawer">Open Drawer</string>
     <string name="close_drawer">Close Drawer</string>
+    <string name="hot_food_tab_title">Hot Food</string>
+    <string name="snacks_tab_title">Snacks</string>
+    <string name="drinks_tab_title">Drinks</string>
+    <string name="favorites_tab_title">Faves</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
