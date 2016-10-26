@@ -1,7 +1,6 @@
 package grinnell.appdev.edu.lyles.adapters;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,7 @@ import grinnell.appdev.edu.lyles.menuItems.BeerItem;
 /**
  * Created by mattmurphy on 9/11/16.
  *
- * General adapter to be used by beer, drinks, favoritefood, hotfood, menu and snacks fragments
+ * General adapter to be used by beer
  * adapter contains image, and description of catelog item
  */
 public class BeerAdapter extends ArrayAdapter<BeerItem> {
