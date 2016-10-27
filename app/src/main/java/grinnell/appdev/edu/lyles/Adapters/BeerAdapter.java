@@ -1,10 +1,13 @@
 package grinnell.appdev.edu.lyles.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +20,7 @@ import grinnell.appdev.edu.lyles.menuItems.BeerItem;
  * General adapter to be used by beer
  * adapter contains image, and description of catelog item
  */
+
 public class BeerAdapter extends ArrayAdapter<BeerItem> {
 
     public BeerAdapter(Context context, int resource) {
@@ -49,6 +53,15 @@ public class BeerAdapter extends ArrayAdapter<BeerItem> {
 
             final TextView  beerType  = (TextView)  convertView.findViewById(R.id.beer_type);
             beerType.setText(beer.getDescription());
+
+            ImageButton beerFavorite = (ImageButton) convertView.findViewById(R.id.beer_favorite);
+            if (beer.isFavorite()) {
+                beerFavorite.setImageResource(R.drawable.ic_favorite_select);
+                beerFavorite.setColorFilter(Color.parseColor("red"));
+            } else {
+                beerFavorite.setImageResource(R.drawable.ic_favorite_unselect);
+                beerFavorite.clearColorFilter();
+            }
         }
 
         return convertView;
