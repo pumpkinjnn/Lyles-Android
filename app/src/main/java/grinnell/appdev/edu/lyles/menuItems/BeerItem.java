@@ -37,8 +37,7 @@ public class BeerItem implements OrderItem {
 
     public boolean isFavorite() { return mFavorite; }
 
-    public void favorite() { mFavorite = true; }
-    public void unfavorite() { mFavorite = false; }
+    public void setFavorite(boolean b) { mFavorite = b; }
 
     public String getImageResource() {
         // TODO: gather image resources from beer name
