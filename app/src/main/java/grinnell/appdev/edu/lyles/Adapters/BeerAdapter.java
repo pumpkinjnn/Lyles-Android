@@ -41,7 +41,7 @@ public class BeerAdapter extends ArrayAdapter<BeerItem> {
                     .inflate(R.layout.beer_list_item, parent, false);
         }
 
-        BeerItem beer = BeerAdapter.super.getItem(pos);
+        final BeerItem beer = BeerAdapter.super.getItem(pos);
 
         if (beer != null) {
             final ImageView beerImage = (ImageView) convertView.findViewById(R.id.beer_image);
@@ -54,7 +54,7 @@ public class BeerAdapter extends ArrayAdapter<BeerItem> {
             final TextView  beerType  = (TextView)  convertView.findViewById(R.id.beer_type);
             beerType.setText(beer.getDescription());
 
-            ImageButton beerFavorite = (ImageButton) convertView.findViewById(R.id.beer_favorite);
+            final ImageButton beerFavorite = (ImageButton) convertView.findViewById(R.id.beer_favorite);
             if (beer.isFavorite()) {
                 beerFavorite.setImageResource(R.drawable.ic_favorite_select);
                 beerFavorite.setColorFilter(Color.parseColor("red"));
@@ -62,6 +62,19 @@ public class BeerAdapter extends ArrayAdapter<BeerItem> {
                 beerFavorite.setImageResource(R.drawable.ic_favorite_unselect);
                 beerFavorite.clearColorFilter();
             }
+
+            beerFavorite.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (beer.isFavorite()) {
+                        beer.setFavorite(false);
+                        beerFavorite.setImageResource(R.drawable.ic_favorite_unselect);
+                    } else {
+                        beer.setFavorite(true);
+                        beerFavorite.setImageResource(R.drawable.ic_favorite_select);
+                    }
+                }
+            });
         }
 
         return convertView;
