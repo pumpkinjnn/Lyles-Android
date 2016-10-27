@@ -9,6 +9,7 @@ public class BeerItem implements OrderItem {
     private String mName;
     private String mDescription;
     private double mPrice;
+    private boolean mFavorite;
 
     public BeerItem() {}
 
@@ -33,6 +34,11 @@ public class BeerItem implements OrderItem {
     public void setPrice(double price) {
         mPrice = price;
     }
+
+    public boolean isFavorite() { return mFavorite; }
+
+    public void favorite() { mFavorite = true; }
+    public void unfavorite() { mFavorite = false; }
 
     public String getImageResource() {
         // TODO: gather image resources from beer name
