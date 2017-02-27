@@ -2,76 +2,89 @@ package grinnell.appdev.edu.lyles.fragments;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.ListView;
+import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import grinnell.appdev.edu.lyles.R;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
-public class BeerFragment extends AppCompatActivity {
+public class BeerFragment extends Fragment{
 
-    ListView list;
-    BeersAdaptor adaptor;
     ArrayList<Beers> beersList;
-
+    private static final String BEER_DATA_URL ="http://www.cs.grinnell.edu/~birnbaum/appdev/lyles/beer.json";
+    BeersAdapter mBeerAdapter;
+    RecyclerView rvBeers;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.beer_layout);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        final String TAG = BeerFragment.this.getTag();
 
-        list = (ListView) findViewById(R.id.lvBeers);
-        beersList = new ArrayList<Beers>();
+        View view = inflater.inflate(R.layout.beer_layout,container,false);
+        // ...
+        // Lookup the recyclerview in activity layout
+        rvBeers = (RecyclerView) view.findViewById(R.id.rvBeers);
 
-        new BeersAsynTask().execute("http://www.cs.grinnell.edu/~birnbaum/appdev/lyles/beer.json");
+        // Initialize contacts
+        beersList =new ArrayList<Beers>();
 
+        new BeersAsyncTask(this).execute(BEER_DATA_URL);
+        // Create adapter passing in the sample user data
+        mBeerAdapter = new BeersAdapter(this, beersList);
+        // Attach the adapter to the recyclerview to populate items
+        mBeerAdapter.notifyDataSetChanged();
+        rvBeers.setAdapter(mBeerAdapter);
+        // Set layout manager to position the items
+        rvBeers.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+        // That's all!
+        return view;
     }
 
+    public class BeersAsyncTask extends AsyncTask<String, Void, Boolean> {
+        ArrayList<Beers> mBeerList;
+        private BeerFragment mParent;
 
-
-    public class BeersAsynTask extends AsyncTask<String, Void, Boolean> {
-
-        HttpURLConnection urlConnection;
+        public BeersAsyncTask(BeerFragment parent) {
+            mParent = parent;
+        }
 
         @Override
         protected Boolean doInBackground(String... params) {
+                mBeerList = new ArrayList<Beers>();
+                OkHttpClient client = new OkHttpClient();
+                Request request = new Request.Builder()
+                        .url(BEER_DATA_URL)
+                        .build();
+                Response response = null;
 
-            StringBuilder result = new StringBuilder();
-
-            try {
-                URL url = new URL("http://www.cs.grinnell.edu/~birnbaum/appdev/lyles/beer.json");
-                urlConnection = (HttpURLConnection) url.openConnection();
-                InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-
-                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    result.append(line);
+                try {
+                    response = client.newCall(request).execute();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
 
-            }catch( Exception e) {
-                e.printStackTrace();
-            }
-            finally {
-                urlConnection.disconnect();
-            }
 
-            String data = result.toString();
             try  {
-                JSONObject beerInformation = new JSONObject(data);
-                JSONArray beers = beerInformation.getJSONArray("beer");
+                String jsonData = null;
+                try {
+                    jsonData = response.body().string();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                JSONObject Jobject = new JSONObject(jsonData);
+                JSONArray beers = Jobject.getJSONArray("beer");
 
                 for (int i=0;i<beers.length();i++){
                     Beers beer = new Beers();
@@ -84,14 +97,11 @@ public class BeerFragment extends AppCompatActivity {
                     beer.setImage(aBeer.getString("image"));
                     beer.setDetails(aBeer.getString("details"));
 
-                    beersList.add(beer);
-
+                    mBeerList.add(beer);
                 }
-
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
             return true;
         }
 
@@ -102,14 +112,13 @@ public class BeerFragment extends AppCompatActivity {
             if(!result){
                 // print message
             }else {
-                BeersAdaptor adaptor = new BeersAdaptor(getApplicationContext(),R.layout.beer_row,beersList);
-                list.setAdapter(adaptor);
-
+              // Log.d("Larry", mBeerList.get(0).getDetails().toString());
+                beersList = mBeerList;
+                mBeerAdapter = new BeersAdapter(mParent, mBeerList);
+                rvBeers.swapAdapter(mBeerAdapter, true);
             }
         }
     }
-
-
 }
 
 

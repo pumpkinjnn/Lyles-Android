@@ -21,5 +21,6 @@
             android:checked="false"
             android:icon="@drawable/ic_star"
             android:title="@string/drawer_favorites"/>
+
     </group>
 </menu>

@@ -7,10 +7,13 @@
     android:orientation="vertical"
     tools:context=".fragments.BeerFragment">
 
-    <ListView
-        android:id="@+id/lvBeers"
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvBeers"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:listitem="@layout/beer_row" />>
+        android:layout_height="match_parent"
+        tools:listitem="@layout/beer_row"/>
+
+
 
 </LinearLayout>
